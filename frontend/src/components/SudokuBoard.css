@@ -1,0 +1,60 @@
+.sudoku-board {
+  display: grid;
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+  width: min(430px, 100%);
+  aspect-ratio: 1 / 1;
+  margin: 0 auto;
+  background: var(--ink);
+  border: 2px solid var(--ink);
+  gap: 1px;
+}
+
+.sudoku-cell {
+  background: var(--paper-raised);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: clamp(1rem, 3.6vw, 1.35rem);
+  font-weight: 600;
+  color: var(--ink);
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  text-align: center;
+  min-width: 0;
+}
+
+.sudoku-cell.given {
+  color: var(--ink-soft);
+  background: var(--paper);
+}
+
+.sudoku-cell.editable:focus-visible {
+  outline: 2px solid var(--gold-strong);
+  outline-offset: -2px;
+  z-index: 1;
+  position: relative;
+}
+
+.sudoku-cell.incorrect {
+  color: var(--bad);
+  background: #fbecea;
+}
+
+.sudoku-cell.box-top {
+  border-top: 2px solid var(--ink);
+}
+.sudoku-cell.box-bottom {
+  border-bottom: 2px solid var(--ink);
+}
+.sudoku-cell.box-left {
+  border-left: 2px solid var(--ink);
+}
+.sudoku-cell.box-right {
+  border-right: 2px solid var(--ink);
+}
+
+.sudoku-cell:disabled {
+  cursor: not-allowed;
+}

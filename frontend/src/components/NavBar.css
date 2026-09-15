@@ -1,0 +1,67 @@
+.navbar {
+  border-bottom: 1px solid var(--rule);
+  background: var(--paper-raised);
+}
+
+.navbar-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 1.1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: -0.01em;
+}
+
+.wordmark-accent {
+  color: var(--gold-strong);
+}
+
+.navbar-tabs {
+  display: flex;
+  gap: 0.25rem;
+  flex: 1;
+}
+
+.tab {
+  background: transparent;
+  border: none;
+  color: var(--ink-soft);
+  font-weight: 600;
+  padding: 0.5em 0.8em;
+  border-radius: 3px;
+}
+
+.tab:hover {
+  background: rgba(28, 39, 51, 0.06);
+  color: var(--ink);
+}
+
+.tab.active {
+  color: var(--ink);
+  background: var(--paper);
+}
+
+.navbar-auth {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+@media (max-width: 520px) {
+  .navbar-inner {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  .navbar-tabs {
+    order: 3;
+    width: 100%;
+    justify-content: space-between;
+  }
+}
