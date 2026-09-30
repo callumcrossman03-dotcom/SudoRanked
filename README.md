@@ -4,9 +4,6 @@ A competitive daily Sudoku app. Everyone gets the same puzzle each day; the
 server times how long it takes you to solve it, and a leaderboard ranks
 players by speed. There's also an unlimited, unranked practice mode.
 
-This is a **Sprint 2 MVP** for Project Forge: the first working, end-to-end
-slice of the app, built on top of the Sprint 1 requirements/design work. It
-is intentionally not feature-complete -- see "What's not built yet" below.
 
 ## Project structure
 
