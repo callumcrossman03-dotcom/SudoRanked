@@ -23,8 +23,10 @@ sudorank/
         puzzles.py                  /api/puzzle/*  (daily puzzle, start, submit)
         leaderboard.py                /api/leaderboard/*  (daily, all-time)
         practice.py                    /api/practice/*  (unlimited unranked puzzles)
+    tests/                     pytest suite (auth, daily puzzle, leaderboard, practice, sudoku)
     test_e2e.py               manual end-to-end smoke test (see below)
     requirements.txt
+    requirements-dev.txt      requirements.txt + pytest/httpx for testing
   frontend/                FastAPI's counterpart: React 19 + Vite
     src/
       api.js                  fetch wrapper for the backend
@@ -58,6 +60,24 @@ This starts the app at `http://localhost:5173`. It expects the backend to be
 running at `http://127.0.0.1:8000` by default -- copy `.env.example` to
 `.env` if you need to point it somewhere else.
 
+## Running the backend tests
+
+```bash
+cd backend
+pip install -r requirements-dev.txt
+pytest
+```
+
+39 tests cover auth, the daily-puzzle start/submit/timing flow, leaderboard
+ranking and points, practice mode, and the sudoku generator/solver directly.
+They run against an isolated in-memory SQLite database (see
+`backend/tests/conftest.py`), not the real `sudorank.db`.
+
+`test_e2e.py` still exists separately as a manual smoke test against an
+actual *running* server (`python3 test_e2e.py` with the backend up) --
+useful for a quick sanity check of the full stack, but the pytest suite is
+the real regression coverage now.
+
 ## What's working (Sprint 2 MVP)
 
 - Register / log in (hashed passwords, JWT session)
@@ -72,8 +92,6 @@ running at `http://127.0.0.1:8000` by default -- copy `.env.example` to
 
 ## What's not built yet
 
-- Automated test suite (`test_e2e.py` is a manual smoke-test script, not
-  pytest yet)
 - Password reset / account recovery
 - Deployment config (this currently only runs locally)
 - Visual polish pass, mobile keyboard input refinements, accessibility audit

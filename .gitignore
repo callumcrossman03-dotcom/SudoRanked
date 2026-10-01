@@ -19,3 +19,4 @@ frontend/vite-dev.log
 # Test artifacts
 backend/server.log
 backend/alice_daily.json
+backend/.pytest_cache/

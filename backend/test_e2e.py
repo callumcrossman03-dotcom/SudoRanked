@@ -1,7 +1,8 @@
 """
-Manual end-to-end smoke test against a running local server.
-Not a pytest suite (that'll come with real unit tests in a later sprint) --
-this just exercises the whole user flow the way the frontend will.
+Manual end-to-end smoke test against a running local server -- exercises
+the whole user flow the way the frontend will. The real regression suite
+is pytest-based now (see backend/tests/); this script is still handy as a
+quick sanity check against an actual running server.
 """
 import sys
 import time
